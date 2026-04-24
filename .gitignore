@@ -1,5 +1,9 @@
 # Compiled class file
 *.class
+node_modules
+.env
+artifacts/
+bin/*.app
 
 # Log file
 *.log
