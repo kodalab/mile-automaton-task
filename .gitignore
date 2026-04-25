@@ -1,27 +1,34 @@
-# Compiled class file
-*.class
-node_modules
+# --- Project Secrets & Env ---
 .env
+
+# --- Dependency Folders ---
+node_modules/
+jspm_packages/
+
+# --- Build & Binary Files ---
+# We ignore the apps themselves as they are large and shouldn't be in Git
+bin/*.app
+bin/*.ipa
+bin/*.zip
+
+# --- Test Artifacts & Reports ---
+# Detox logs, screenshots, and videos
 artifacts/
-bin/*
-# Log file
+# Your new HTML report folder
+e2e/report/
+# Jest coverage if you use it later
+coverage/
+
+# --- Debug & System Logs ---
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.scratch
