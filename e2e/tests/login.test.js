@@ -1,6 +1,6 @@
 import Login from '../model/login';
-import Navigation from '../model/Navigation';
-import happyPath from './flow/happyPath';
+import NavBar from '../model/screens/navigationScreen';
+
 
 describe('Mile Club Happy Path', () => {
   beforeAll(async () => {
@@ -9,6 +9,6 @@ describe('Mile Club Happy Path', () => {
 
   it('should complete the end-to-end journey', async () => {
     await Login.login(process.env.TEST_USER, process.env.TEST_PASS);
-    await Navigation.goToDiscover();
+    await NavBar.goToDiscoverTab();
   });
 });
