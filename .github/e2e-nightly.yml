@@ -1,0 +1,21 @@
+# .github/workflows/e2e-nightly.yml
+name: Nightly E2E
+on:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+      - name: Install Detox Prerequisites
+        run: |
+          brew tap wix/brew
+          brew install applesimutils
+      - name: Run E2E
+        run: npx detox test -c ios.sim.release
+        env:
+          TEST_USER: ${{ secrets.TEST_USER }}
+          TEST_PASS: ${{ secrets.TEST_PASS }}
