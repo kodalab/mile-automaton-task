@@ -30,12 +30,19 @@ TEST_PASS=your_password
 ```
 
 ## 🛠 Running Tests
-1. Place the Binary
-The framework is configured to look for the application in the bin/ directory. Ensure the simulator-compatible build (Mile.app) is present there.
+### 1. Place the Binary
+The framework is configured to look for the application in the bin/ directory. Ensure the simulator-compatible build (Mile.app) is present there. 
 
-2. Execute Suite
-Run the suite using the release configuration (optimized for pre-built binaries):
-
+### 2. Run the tests 
+#### 2.1 Simulators
+Note on Simulators: The suite is currently configured for iPhone 16 Pro. If you do not have this simulator installed, the test will fail to boot.
+Run the following command to see your available devices.
+```
+applesimutils --list
+```
+Next Update the type field in .detoxrc.js under devices.simulator to match an available device on your machine.
+#### 2.2 Test run
+Run the suite using the release configuration (optimized for pre-built binaries)
 Bash
 ```
 npx detox test
