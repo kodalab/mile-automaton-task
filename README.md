@@ -22,7 +22,7 @@ All planned Page Objects and Selectors remain in the codebase to provide a clear
 npm install
 ```
 3. Environment Setup
-Create a .env file in the root directory:
+Create a .env file in the root directory, these user credentials need to be valid for production env:
 
 ```
 TEST_USER=your_email@example.com
