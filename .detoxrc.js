@@ -1,37 +1,43 @@
 /** @type {Detox.DetoxConfig} */
-export const apps = {
-  'ios.physical': {
-    type: 'ios.app',
-    binaryPath: 'temp_payload/Payload/Mile.ipa', // Path to extracted .app from IPA
-    bundleId: 'com.mile.app', // Ensure this matches the IPA
-  },
-  'ios.simulator': {
-    type: 'ios.app',
-    binaryPath: 'bin/MileClub.app',
-    build: 'xcodebuild -workspace ios/MileClub.xcworkspace ...'
-  }
-};
-export const devices = {
-  'physical': {
-    type: 'ios.none',
-    device: {
-      id: '000008150-000865463C07801C' // Your iPhone's UDID
+module.exports = {
+  testRunner: {
+    args: {
+      $0: 'jest',
+      config: 'e2e/jest.config.js'
+    },
+    jest: {
+      setupTimeout: 120000
     }
   },
-  'simulator': {
-    type: 'ios.simulator',
-    device: {
-      type: 'iPhone 15'
+  apps: {
+    'ios.release': {
+      type: 'ios.app',
+      binaryPath: 'bin/Mile.app',
+      launchArgs: {
+        // Some versions of Detox prefer permissions here
+        permissions: { notifications: 'YES', location: 'always' }
+      }
     }
-  }
-};
-export const configurations = {
-  'ios.device.release': {
-    device: 'physical',
-    app: 'ios.physical'
   },
-  'ios.sim.debug': {
-    device: 'simulator',
-    app: 'ios.simulator'
+  devices: {
+    simulator: {
+      type: 'ios.simulator',
+      device: {
+        type: 'iPhone 16 Pro' 
+      }
+    }
+  },
+  configurations: {
+    'ios.sim.release': {
+      device: 'simulator',
+      app: 'ios.release',
+      // Other versions of Detox prefer permissions here
+      util: {
+        permissions: {
+          notifications: 'YES',
+          location: 'always'
+        }
+      }
+    }
   }
 };

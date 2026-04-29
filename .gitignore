@@ -6,18 +6,10 @@ node_modules/
 jspm_packages/
 
 # --- Build & Binary Files ---
-# We ignore the apps themselves as they are large and shouldn't be in Git
+# Igonre the apps themselves as they are large and shouldn't be in Git
 bin/*.app
 bin/*.ipa
 bin/*.zip
-
-# --- Test Artifacts & Reports ---
-# Detox logs, screenshots, and videos
-artifacts/
-# Your new HTML report folder
-e2e/report/
-# Jest coverage if you use it later
-coverage/
 
 # --- Debug & System Logs ---
 *.log
@@ -26,6 +18,12 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 Thumbs.db
+
+# Detox/Jest Reports
+e2e/report/
+test-results/
+artifacts/
+
 
 # --- Editor / IDE ---
 .vscode/
