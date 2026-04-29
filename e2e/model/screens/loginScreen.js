@@ -1,15 +1,31 @@
 import BaseScreen from '../common/baseScreen';
 import selectors from '../selectors/loginSelectors';
 
-const { EMAIL_INPUT, PASS_INPUT, SUBMIT_BTN } = selectors;
-
 class Login extends BaseScreen {
+
+  async tapLoginButton() {
+  await waitFor(element(by.text(selectors.loginButton))).toBeVisible().withTimeout(10000);
+  await element(by.text(selectors.loginButton)).tap();
+}
+
+  async enterEmail(email) {
+    await element(by.label('EMAIL')).tap();
+    await element(by.value('Type your answer here')).replaceText(email);
+    await element(by.label('CONTINUE')).tap();
+  }
+
+  async enterPassword(password) {
+    await element(by.value('Password')).replaceText(password);
+    await element(by.label('LOGIN')).tap();
+  }
+  
+  async tapEmailLoginOption() {
+    await element(by.text(selectors.emailLoginOption)).tap();
+  }
   async login(email, password) { 
-    await element(by.id(EMAIL_INPUT)).typeText(email);
-    await element(by.id(PASS_INPUT)).typeText(password);
-    await this.dismissKeyboard(); 
-    await element(by.id(SUBMIT_BTN)).tap();
-    await this.waitForLoadingToFinish(); 
+    await this.tapLoginButton();
+    await this.enterEmail(email);
+    await this.enterPassword(password);
   }
 }
 
