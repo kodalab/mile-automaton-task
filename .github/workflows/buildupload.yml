@@ -1,9 +1,0 @@
-- name: Upload a Build Artifact
-  uses: actions/upload-artifact@v7.0.1
-  with:
-    name: mile-app-binary
-    path: bin/Mile.app
-  Available Options:
-    - error: Fail the action with an error message
-    retention-days: 3 # Keep for 3 days for the demo and review of framework
-    if-no-files-found: error
