@@ -1,0 +1,12 @@
+- name: Upload a Build Artifact
+  uses: actions/upload-artifact@v7.0.1
+  with:
+    name: mile-app-binary
+    path: bin/Mile.app
+    # The desired behavior if no files are found using the provided path.
+Available Options:
+  warn: Output a warning but do not fail the action
+  error: Fail the action with an error message
+  ignore: Do not output any warnings or errors, the action does not fail
+    retention-days: 3 # Keep for 3 days for the demo and review of framework
+    if-no-files-found: error
