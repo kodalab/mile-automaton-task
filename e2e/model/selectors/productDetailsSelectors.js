@@ -4,6 +4,6 @@ export default {
     productName: 'product-name',
     productPrice: 'product-price',
     favouriteBtn: 'favourite-btn',
-    productSize: 'UK3.5',
+    productSize: 'L',
     addToCartBtn: 'ADD TO CART'
 }

@@ -1,3 +1,3 @@
 export default {
-  firstProductItem: '£50 Save £50 Adidas Adizero Adios OG White Hi Res Blue Invisible Text'
+  firstProductItem: '£210 Save £410 Gallery Dept. Art Dept Hoodie Heather Grey Invisible Text'
 };
